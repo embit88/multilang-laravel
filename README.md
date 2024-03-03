@@ -11,7 +11,7 @@
 
 #### Установка
 
-- composer require embit88/multilang
+- composer require embit88/multilang-laravel
 
 - php artisan migrate --seed
 
