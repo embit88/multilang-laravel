@@ -1,0 +1,28 @@
+{
+    "name": "embit88/multilang",
+    "description": "Multilang laravel",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Embit88",
+            "email": "fyshtey@gmail.com",
+            "homepage": "https://github.com/embit88"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Embit88\\MultiLang\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Embit88\\MultiLang\\Providers\\MultiLangServiceProvider"
+            ]
+        }
+    }
+}
