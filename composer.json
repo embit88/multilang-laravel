@@ -2,7 +2,7 @@
     "name": "embit88/multilang-laravel",
     "description": "Multilang laravel",
     "type": "library",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "license": "MIT",
     "authors": [
         {
