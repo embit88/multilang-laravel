@@ -4,6 +4,7 @@ namespace Embit88\MultiLang\Providers;
 
 use Embit88\MultiLang\Services\MultiLanguage;
 use Illuminate\Support\ServiceProvider;
+use MultiLanguage as Language;
 
 class MultiLangServiceProvider extends ServiceProvider
 {
@@ -12,7 +13,9 @@ class MultiLangServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-
+        $this->app->singleton('languages', function (){
+            return new MultiLanguage();
+        });
     }
 
     /**
@@ -20,12 +23,16 @@ class MultiLangServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        MultiLanguage::getInstance()->start();
+
+        $this->mergeConfigFrom(__DIR__.'/../config/multilang.php', 'multilang');
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         $this->publishes([
             __DIR__.'/../config/multilang.php' => config_path('multilang.php'),
         ]);
+
+        Language::start();
+
     }
 }

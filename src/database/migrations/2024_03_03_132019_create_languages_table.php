@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('languages', function (Blueprint $table) {
+        Schema::create($this->getTableName(), function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 100);
             $table->string('code', 2);
@@ -25,13 +25,9 @@ return new class extends Migration
             $table->integer('sort_order')->default(0);
         });
 
-        if (Schema::hasTable('languages')){
+        if (Schema::hasTable($this->getTableName())){
 
-            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-            Language::truncate();
-            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-
-            DB::table('languages')->insert([
+            DB::table($this->getTableName())->insert([
                 'title' => 'English',
                 'code' => 'en',
                 'encoding' => 'en',
@@ -41,7 +37,7 @@ return new class extends Migration
                 'sort_order' => 1,
             ]);
 
-            DB::table('languages')->insert([
+            DB::table($this->getTableName())->insert([
                 'title' => 'Русский',
                 'code' => 'ru',
                 'encoding' => 'ru',
@@ -49,7 +45,7 @@ return new class extends Migration
                 'url' => 'ru',
                 'status' => 1,
                 'base' => 0,
-                'sort_order' =>2,
+                'sort_order' => 2,
             ]);
 
         }
@@ -61,6 +57,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('languages');
+        Schema::dropIfExists($this->getTableName());
+    }
+
+    private function getTableName(): string
+    {
+        return config('multilang.table_name') ?? 'em_languages';
     }
 };

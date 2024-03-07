@@ -1,6 +1,6 @@
 {
     "name": "embit88/multilang-laravel",
-    "description": "Multilang laravel",
+    "description": "MultiLang laravel routing",
     "type": "library",
     "minimum-stability": "stable",
     "license": "MIT",
@@ -23,7 +23,10 @@
         "laravel": {
             "providers": [
                 "Embit88\\MultiLang\\Providers\\MultiLangServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "MultiLanguage": "Embit88\\MultiLang\\Services\\Facades\\LanguageFacade"
+            }
         }
     }
 }
