@@ -30,7 +30,7 @@ class MultiLangServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/multilang.php' => config_path('multilang.php'),
-        ]);
+        ], 'multilang');
 
         Language::start();
 

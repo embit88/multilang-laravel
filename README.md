@@ -4,16 +4,18 @@
 ## MultiLang Laravel routing
 
 ### Установка
+###
 
 - composer require embit88/multilang-laravel
 
-- php artisan vendor:publish --provider='Embit88\MultiLang\Providers\MultiLangSeriviceProvider'
+- php artisan vendor:publish --tag=multilang --force
 
 - php artisan migrate --seed
 
 - Добавьте в prefix route MultiLanguage::url()
 
 #### Дополнительные методы
+###
 
 - MultiLanguage::id() - ID языка
 - MultiLanguage::title() - Название языка
@@ -21,9 +23,7 @@
 - MultiLanguage::encoding() - Encoding языка
 - MultiLanguage::locale() - Локаль языка
 - MultiLanguage::url() - URL языка
-
-
-
+####
 - MultiLanguage::getLanguages() - Получить все языки
 - MultiLanguage::getBaseLanguage() - Получить язык по-умолчанию
 - MultiLanguage::getCurrentLanguage() - Получить текущий язык
