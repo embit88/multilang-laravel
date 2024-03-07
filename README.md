@@ -10,7 +10,7 @@
 
 - php artisan migrate --seed
 
-- Add in prefix route "MultiLanguage::url()" Example: Route::get('/', 'HomeController@index')->name('home')->prefix(MultiLanguage::url());
+- Add in prefix route "MultiLanguage::url()"
 
 #### Methods
 
