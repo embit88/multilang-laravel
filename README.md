@@ -29,6 +29,6 @@
 
 - MultiLanguage::getLanguages() - Get all languages
 
-- MultiLanguage::getDefaultLanguage() - Get default language
+- MultiLanguage::getBaseLanguage() - Get base language
 
 - MultiLanguage::getCurrentLanguage() - Get current language
