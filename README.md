@@ -2,17 +2,23 @@
 
 ## MultiLanguage Laravel routing
 
-### Installation
+#####
+
+### Installation:
 
 - composer require embit88/multilang-laravel
 
 - php artisan vendor:publish --tag=multilang --force
 
-- php artisan migrate --seed
+- customize the multilang.php file in the config folder
 
-- Add in prefix route "MultiLanguage::url()"
+- php artisan migrate
 
-#### Methods
+- Add in prefix route: MultiLanguage::url()
+
+----
+
+#### Methods:
 
 - MultiLanguage::id() - ID language
 
@@ -26,6 +32,7 @@
 
 - MultiLanguage::url() - URL language
 
+#####
 
 - MultiLanguage::getLanguages() - Get all languages
 

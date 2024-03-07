@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('sort_order')->default(0);
         });
 
-        if (Schema::hasTable($this->getTableName())){
+        if (config('multilang.seed_status') && Schema::hasTable($this->getTableName())){
 
             DB::table($this->getTableName())->insert([
                 'title' => 'English',
