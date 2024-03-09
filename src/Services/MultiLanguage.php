@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Schema;
 
 class MultiLanguage
 {
+    private const URL_LENGTH = 2;
 
     protected string $title;
 
@@ -54,9 +55,9 @@ class MultiLanguage
     public function start(): void
     {
         if (Schema::hasTable($this->getTableName())) {
-            $lang_url = $this->getRequestSegment();
+            $request_lang_url = $this->getRequestSegment();
 
-            $detected_language = $this->currentLanguage($lang_url);
+            $detected_language = $this->currentLanguage($request_lang_url);
 
             $language = $detected_language ?? $this->baseLanguage();
 
@@ -69,7 +70,7 @@ class MultiLanguage
                 $this->language_id = $language->id;
 
                 app()->setLocale($language->locale);
-                if (strlen($lang_url) === 2 && $this->url !== $lang_url){
+                if (strlen($request_lang_url) === self::URL_LENGTH && $this->url !== $request_lang_url){
                     abort(404);
                 }
             }
